@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="trainingApp">
+	<head>
+		<title>Learning AngularJS</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+		<script src="trainingApp.js"></script>
+		<script src="trainingController.js"></script>
+		<script src="teamController.js"></script>
+		<style>
+			.trololo { font-size: 14px;}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper" ng-controller="trainingController as trainCtrl">
+			<div ng-class="{'trololo': trololo}">
+				<h1>{{ course }}</h1>
+				<h2 ng-bind="course"></h2>
+				<h2 ng-bind="trainCtrl.course"></h2>
+				<h3 ng-click="getCourse()">click me</h3>
+				<p>Hello {{team.length}} teammembers</p>
+				<div ng-show="team.length>10">
+					<p>Hello team!</p>
+				</div>
+				<div ng-hide="team.length>10">
+					<p>Hello world!</p>
+				</div>
+				<div ng-if="trainees">
+					<p>Trainees</p>
+				</div>
+				<ul class='trainee-list'>
+					<li ng-repeat='trainee in team'>
+						{{trainee.name}} --- {{trainee.skill}}
+					</li>
+				</ul>
+				<!--div ng-include="'teamTemplate.html'">
+					
+				</div-->
+				<div ng-switch="lesson">
+					<p ng-switch-when="1">lesson 1</p>
+					<p ng-switch-when="2">lesson 2</p>
+					<p ng-switch-when="3">lesson 3</p>
+					<p ng-switch-default>lesson default</p>
+				</div>
+			</div>			
+			<div ng-controller="teamController">
+				<ul class='trainee-list'>
+					<li ng-repeat='trainee in team'>
+						{{trainee.name}} has skill {{trainee.skill}}
+					</li>
+				</ul>
+			</div>		
+		</div>
+	</body>
+</html>
