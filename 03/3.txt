@@ -1,0 +1,41 @@
+
+Lesson 3: Custom Directives & Filters
+
+	=[Custom directives]=
+
+Directive in Angular is Factory (many instances in the app, not a singleton)
+
+Techtalks in GL:  Gulp, Grunt, Bower
+
+Directive restrict:
+	E - element
+	A - attribute
+	C - class
+	
+!!! RULE: Do not use directives for business logic => Do not change scope and add business logic to scope in directive.
+
+Events:
+mouseenter = hover in
+mouseleave = hover out
+
+DRY - Do not repeat yourself => Directive Isolated Scope  
+
+Isolate scope:
+//& - method; =  - variable binding, @ - string
+
+
+Memory leak in directives: Event inside directive was added to body (example). Then directive is removed from DOM, added event will not be deleted.
+
+ Use scope.$on('$destroy', function(){
+	//clean up custom events before directives is destroyed
+ });
+ 
+ Use directives as attributes because of browser compatibility.
+ 
+	
+	
+	=[Filters]=
+	
+Filters can be used in HTML and JS code
+	
+ng-model - two way data binding

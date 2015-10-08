@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="trainingApp">
+	<head>
+		<title>Learning AngularJS</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+		<script src="trainingApp.js"></script>
+		<script src="trainingController.js"></script>
+		<script src="uniqueFilter.js"></script>
+		<script src="services.js"></script>
+	</head>
+	<body>
+		<div id="wrapper" ng-controller="trainingController as trainCtrl">
+			<div ng-class="{'trololo': trololo}">
+				<h1>{{ course }}</h1>
+				<h2 ng-bind="trainCtrl.course"></h2>
+				<h3 ng-click="getCourse()">title</h3>
+				<p>Team: {{team.length}} </p>
+				<div ng-show="team.length > 6">
+					<p>Hello team!</p>
+				</div>
+				<div ng-hide="team.length > 6">
+					<p>Hello world!</p>
+				</div>
+				<div ng-if="!!trainies">
+					Trainies
+				</div>
+		</div>
+		<hr/>
+		<div data-user-list="team"></div>
+		<hr/>
+		<br/>
+		<div>
+			Number: {{ number | currency : '$' : 1 }}
+		</div>
+		<div>
+			String: {{ string | uppercase }}
+		</div>
+		<div>
+			Start date: {{ startDate | date : 'fullDate' }}
+		</div>
+		<div>
+			Team: {{ team | json }}
+		</div>
+		<div>
+			Limit team: {{ team | limitTo : 2}}
+		</div>
+		
+		<input type="text" ng-model="filteredUser"/>
+		
+		<select ng-model="skillFilter" ng-options="trainee for trainee in team | unique: 'skill'"></select>
+		<ul class="trainee-list">
+			<li ng-repeat="trainee in team  | filter: {name: filteredUser, skill: skillFilter}">
+				{{ trainee.name }}	
+			</li>
+		</ul>
+		<button ng-click="saveTeam()">Save</button>
+		<button ng-click="getTeam()">Get</button>
+		<button ng-click="clearTeam()">Clear</button>
+		</div>
+	</body>
+</html>
