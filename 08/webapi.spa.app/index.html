@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Angular JS Training</title>
+	<meta charset="utf-8" />
+	<script src="Scripts/vendor/jquery/jquery-1.9.1.js"></script>
+	<script src="Scripts/vendor/bootstrap/bootstrap.js"></script>
+	<script src="Scripts/vendor/angular/angular.js"></script>
+	<script src="Scripts/vendor/angular-route/angular-route.js"></script>
+	<script src="Scripts/app/index/module/app.js"></script>
+	<script src="Scripts/app/index/controllers/mainController.js"></script>
+	<script src="Scripts/app/index/controllers/tabController.js"></script>
+</head>
+
+<body>
+	<ul>
+		<li>
+			<a href="#main">Main</a>
+		</li>
+		<li>
+			<a href="#tab">Tab</a>
+		</li>
+		<li>
+			<a href="#user/1">User 1</a>
+		</li>
+		<li>
+			<a href="#user/4">User 4</a>
+		</li>
+	</ul>
+	<div ng-view></div>
+</body>
+</html>
